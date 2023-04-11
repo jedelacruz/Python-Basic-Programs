@@ -1,0 +1,17 @@
+print("MadLibs")
+print()
+
+adjective = input("Adjective:")
+verb = input("Verb:")
+adjective2 = input("Adjective:")
+noun2 = input("Noun:")
+verb2 = input("Verb:")
+adjective3 = input("Adjective:")
+noun3 = input("Noun:")
+adjective4 = input("Adjective:")
+adjective5 = input("Adjective:")
+noun4 = input("Noun:")
+noun5 = input("Noun:")
+
+print()
+print("Our School cafeteria has really " + adjective + " food." + " Just \nthinking about it makes my stomach " + verb + ". The \nspaghetti is " + adjective2 + " and tastes like " + noun2 + ". One \nday, I swear one of my meatballs started to " + verb2 + " ! The \nturkey tacos are totally " + adjective3 + " and look kind of like old \n" + noun3 + " . My friend Dana actually likes the meatloaf, even \nthough it's " + adjective4 + " and " + adjective5 + " 'mystery meatloaf' and think it's really made out of " + noun4 + ". My \ndad said he'd make my lunches, but the first day, he made me\na sandwich out of " + noun5 + " and peanut butter! I think I'd \nrather take my chances with the cafeteria!")
