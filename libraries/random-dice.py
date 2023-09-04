@@ -1,5 +1,8 @@
 import random
 
-dice = random.randint(1,6)
+randomNumber = random.randint(1,6)
+#print(randomNumber)
 
-print(dice)
+input("Press any key to roll a dice")
+
+print(f"The dice rolled and it's number {randomNumber}")
