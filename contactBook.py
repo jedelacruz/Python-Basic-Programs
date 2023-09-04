@@ -13,6 +13,7 @@ def main():
     print("2. View")
     print("3. Update")
     print("4. Delete")
+    print("5. Quit")
     print()
 
     while True:
@@ -28,6 +29,9 @@ def main():
                 updateSection()
             elif menuChoice == 4:
                 deleteSection()
+            elif menuChoice == 5:
+                print("thanks for using!")
+                break
 
         except:
             pass
@@ -39,7 +43,12 @@ def addSection():
         addAskContact = int(input("Enter contact number: "))
     except ValueError:
         print("please enter a valid number")
-    contactList[addAskName] = addAskContact
+    
+    if addAskContact:
+        contactList[addAskName] = addAskContact
+        print()
+        print("contact added succesfully")
+
     print()
     main()
 def viewSection():
