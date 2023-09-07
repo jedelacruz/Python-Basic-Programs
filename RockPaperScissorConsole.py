@@ -1,290 +1,35 @@
 import random
 
-def start():
-    print("ROCK PAPER SCISSORS")
-    print()
-    mainMenu()
+gameList = ["rock" , "paper", "scissors"]
+youLife = 3
+comLife = 3
 
-def mainMenu():
-    while True:
-        print("1. Play")
-        print("2. Exit")
-        print()
-        choiceMainMenu = input(": ")
-        print()
-        if choiceMainMenu == "1":
-            playWindow()
+random.shuffle(gameList)
+
+print("Rock Paper Scissors")
+print("You must defeat the computer to win! You both have 3 lives!")
+print("Goodluck!")
+
+while True:
+    choice = input("\nEnter choice (rock, paper, scissors): ").lower()
+    if choice == "rock" or choice == "paper" or choice == "scissors":
+        if (gameList[0] == "rock" and choice == "scissors") or (gameList[0] == "scissors" and choice == "paper") or (gameList[0] == "paper" and choice == "rock"):
+            print(f"you lose! the computer chose {gameList[0]} and you chose {choice}.")
+            youLife -= 1
+            random.shuffle(gameList)
+        elif choice == gameList[0]:
+            random.shuffle(gameList)
+            print(f"it's a tie! the computer chose {gameList[0]} and you chose {choice}.")
+        else:
+            print(f"you win! the computer chose {gameList[0]} and you chose {choice}.")
+            comLife -= 1
+            random.shuffle(gameList)
+
+        if youLife == 0:
+            print("\nYOU LOSE!! GAME OVER!")
             break
-        elif choiceMainMenu == "2":
+        elif comLife == 0:
+            print("\nYOU WIN!! CONGRATS!")
             break
-        else:
-            print("Invalid Choice")
-            print()
-
-def playWindow():
-    while True:
-        print("1. Player vs Computer")
-        print("2. Player vs Player")
-        print()
-        playWindowChoice = input(": ")
-        print()
-        if playWindowChoice == "1":
-            playerVScomputer()
-            break
-        elif playWindowChoice == "2":
-            playerVSplayer()
-            break
-        else:
-            print("Invalid Choice")
-
-def playerVScomputer():
-    while True:
-        print("Player \n1. Rock \n2. Paper \n3. Scissors \n")
-
-        choice = int(input(": "))
-
-        while choice > 3 or choice < 1:
-            choice = int(input("Enter valid input: "))
-
-        if choice == 1:
-            choice_name = 'Rock'
-        elif choice == 2:
-            choice_name = 'Paper'
-        else:
-            choice_name = 'Scissors'
-
-        print(": " + choice_name)
-        print()
-        print("Computer is generating its choice...")
-
-        comp_choice = random.randint(1, 3)
-
-        if comp_choice == 1:
-            comp_choice_name = 'Rock'
-        elif comp_choice == 2:
-            comp_choice_name = 'Paper'
-        else:
-            comp_choice_name = 'Scissors'
-
-        print("Computer's choice is: " + comp_choice_name)
-
-        print()
-        print(choice_name + " V/S " + comp_choice_name)
-
-        result = (choice - comp_choice + 3) % 3
-
-        if result == 0:
-            print("Draw")
-        elif result == 1:
-            print("You win!")
-        else:
-            print("You lose!")
-
-        print()
-        while True:
-            print("Do you want to play again? (Y/N)")
-            ans = input("\n: ")
-            print()
-            if ans == 'N' or ans == 'n':
-                print("Thanks for playing!")
-                print()
-                start()
-                return
-            elif ans == 'Y' or ans == 'y':
-                print('Play again')
-                print()
-                break
-            else:
-                print("Invalid")
-                print()
-
-
-def playerVSplayer():
-    while True:
-        print("Player 1")
-        play1Choice = input("1.Rock \n2.Paper \n3.Scissors \n\n: ")
-
-        print()
-
-        print("Player 2")
-        play2Choice = input("1.Rock \n2.Paper \n3.Scissors \n\n: ")
-
-        print()
-
-        if play1Choice == "1" and play2Choice == "1":
-            print("Draw")
-            print()
-            while True:
-                print("Do you want to play again? (Y/N)")
-                ans = input("\n: ")
-                print()
-                if ans == 'N' or ans == 'n':
-                    print("Thanks for playing!")
-                    print()
-                    start()
-                    return
-                elif ans == 'Y' or ans == 'y':
-                    print('Play again')
-                    print()
-                    break
-                else:
-                    print("Invalid")
-                    print()
-        elif play1Choice == "1" and play2Choice == "2":
-            print("Player 2 won!")
-            print()
-            while True:
-                print("Do you want to play again? (Y/N)")
-                ans = input("\n: ")
-                print()
-                if ans == 'N' or ans == 'n':
-                    print("Thanks for playing!")
-                    print()
-                    start()
-                    return
-                elif ans == 'Y' or ans == 'y':
-                    print('Play again')
-                    print()
-                    break
-                else:
-                    print("Invalid")
-                    print()
-        elif play1Choice == "1" and play2Choice == "3":
-            print("Player 1 won!")
-            print()
-            while True:
-                print("Do you want to play again? (Y/N)")
-                ans = input("\n: ")
-                print()
-                if ans == 'N' or ans == 'n':
-                    print("Thanks for playing!")
-                    print()
-                    start()
-                    return
-                elif ans == 'Y' or ans == 'y':
-                    print('Play again')
-                    print()
-                    break
-                else:
-                    print("Invalid")
-                    print()
-        elif play1Choice == "2" and play2Choice == "1":
-            print("Player 1 won!")
-            print()
-            while True:
-                print("Do you want to play again? (Y/N)")
-                ans = input("\n: ")
-                print()
-                if ans == 'N' or ans == 'n':
-                    print("Thanks for playing!")
-                    print()
-                    start()
-                    return
-                elif ans == 'Y' or ans == 'y':
-                    print('Play again')
-                    print()
-                    break
-                else:
-                    print("Invalid")
-                    print()
-        elif play1Choice == "2" and play2Choice == "2":
-            print("Draw")
-            print()
-            while True:
-                print("Do you want to play again? (Y/N)")
-                ans = input("\n: ")
-                print()
-                if ans == 'N' or ans == 'n':
-                    print("Thanks for playing!")
-                    print()
-                    start()
-                    return
-                elif ans == 'Y' or ans == 'y':
-                    print('Play again')
-                    print()
-                    break
-                else:
-                    print("Invalid")
-                    print()
-        elif play1Choice == "2" and play2Choice == "3":
-            print("Player 2 won!")
-            print()
-            while True:
-                print("Do you want to play again? (Y/N)")
-                ans = input("\n: ")
-                print()
-                if ans == 'N' or ans == 'n':
-                    print("Thanks for playing!")
-                    print()
-                    start()
-                    return
-                elif ans == 'Y' or ans == 'y':
-                    print('Play again')
-                    print()
-                    break
-                else:
-                    print("Invalid")
-                    print()
-        elif play1Choice == "3" and play2Choice == "1":
-            print("Player 2 won!")
-            print()
-            while True:
-                print("Do you want to play again? (Y/N)")
-                ans = input("\n: ")
-                print()
-                if ans == 'N' or ans == 'n':
-                    print("Thanks for playing!")
-                    print()
-                    start()
-                    return
-                elif ans == 'Y' or ans == 'y':
-                    print('Play again')
-                    print()
-                    break
-                else:
-                    print("Invalid")
-                    print()
-        elif play1Choice == "3" and play2Choice == "2":
-            print("Player 1 won!")
-            print()
-            while True:
-                print("Do you want to play again? (Y/N)")
-                ans = input("\n: ")
-                print()
-                if ans == 'N' or ans == 'n':
-                    print("Thanks for playing!")
-                    print()
-                    start()
-                    return
-                elif ans == 'Y' or ans == 'y':
-                    print('Play again')
-                    print()
-                    break
-                else:
-                    print("Invalid")
-                    print()
-        elif play1Choice == "3" and play2Choice == "3":
-            print("Draw")
-            print()
-            while True:
-                print("Do you want to play again? (Y/N)")
-                ans = input("\n: ")
-                print()
-                if ans == 'N' or ans == 'n':
-                    print("Thanks for playing!")
-                    print()
-                    start()
-                    return
-                elif ans == 'Y' or ans == 'y':
-                    print('Play again')
-                    print()
-                    break
-                else:
-                    print("Invalid")
-                    print()
-        else:
-            print("Invalid")
-            print()
-
-
-start()
+    else:
+        print("invalid input!")
