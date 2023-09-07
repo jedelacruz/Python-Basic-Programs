@@ -1,0 +1,11 @@
+"""
+Power of a Number: Implement a function to calculate the result of raising a number to a specified power.
+"""
+
+def power():
+    num1 = int(input("Enter num: "))
+    num2 = int(input("Enter raise num: "))
+    result = num1 ** num2
+    return result
+
+print("the result is", power())
